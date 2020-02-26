@@ -1,6 +1,7 @@
 // Reference: https://github.com/andregardi/use-global-hook
 
 function setState(store, newState, afterUpdateCallback) {
+  console.log(store, newState, afterUpdateCallback);
     store.state = { ...store.state, ...newState };
     store.listeners.forEach((listener) => {
       listener.run(store.state);

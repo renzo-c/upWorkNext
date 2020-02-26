@@ -11,7 +11,7 @@ const Home = () => {
     user: { name_first, name_last }
   } = globalState;
   const {
-    user: { setUser, updateUser }
+    user: { updateUser }
   } = globalActions;
 
   const [values, setValues] = useState({
@@ -33,7 +33,7 @@ const Home = () => {
   useEffect(() => {
     const asyncFunction = async() => {
       const label = "name_last"
-      await globalActions.user.updateUser({ [label]: "name_last changed" });
+      await updateUser({ [label]: "name_last changed" });
       setValues({ ...values, [label]: name_last });
     }
     asyncFunction();
@@ -42,7 +42,7 @@ const Home = () => {
   const handleInputChange = label => event => {
     const value = event.target.value;
     setValues({ ...values, [label]: value });
-    globalActions.user.updateUser({ [label]: value });
+    updateUser({ [label]: value });
   };
   return (
     <>

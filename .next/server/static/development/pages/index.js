@@ -1,7 +1,7 @@
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
-/******/ 	var installedModules = require('../../../../ssr-module-cache.js');
+/******/ 	var installedModules = require('../../../ssr-module-cache.js');
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1909,10 +1909,10 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 
 /***/ }),
 
-/***/ "./pages/post/[id]/index.js":
-/*!**********************************!*\
-  !*** ./pages/post/[id]/index.js ***!
-  \**********************************/
+/***/ "./pages/index.js":
+/*!************************!*\
+  !*** ./pages/index.js ***!
+  \************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1920,96 +1920,325 @@ module.exports = __webpack_require__(/*! ./dist/client/link */ "./node_modules/n
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/header */ "./components/header.js");
-var _jsxFileName = "/home/bigeyestoad/Documents/gitRepos/challenges/upworkNextJS/pages/post/[id]/index.js";
-
+/* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/header */ "./components/header.js");
+/* harmony import */ var _utils_context_store_global__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/context/store/global */ "./utils/context/store/global/index.js");
+var _jsxFileName = "/home/bigeyestoad/Documents/gitRepos/challenges/upworkNextJS/pages/index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
-const Post = () => {
-  const router = Object(next_router__WEBPACK_IMPORTED_MODULE_1__["useRouter"])();
+
+
+const Home = () => {
+  // TODO: Create local state for first name which will change only on this page. 
+  // It should also be able to update with global state.
+  const [globalState, globalActions] = Object(_utils_context_store_global__WEBPACK_IMPORTED_MODULE_2__["default"])();
   const {
-    id
-  } = router.query;
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_components_header__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    user: {
+      name_first,
+      name_last
+    }
+  } = globalState;
+  const {
+    user: {
+      updateUser
+    }
+  } = globalActions;
+  const {
+    0: values,
+    1: setValues
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])({
+    name_first,
+    name_last
+  });
+  /** TODO: Change first or last name which should show across website.
+   * i.e. Create text field that will change global state ALSO with local state on this page.
+   *
+   * This is a small example on how globalActions should be used.*/
+  // const handleNameChange = (event) => {
+  //   const value = event.target.value
+  //   globalActions.user.updateUser({[event.target.name]:value});
+  // }
+  // TODO: Create useEffect to change the last name ONCE upon showing this page.
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    const asyncFunction = async () => {
+      const label = "name_last";
+      await updateUser({
+        [label]: "name_last changed"
+      });
+      setValues(_objectSpread({}, values, {
+        [label]: name_last
+      }));
+    };
+
+    asyncFunction();
+  }, []);
+
+  const handleInputChange = label => event => {
+    const value = event.target.value;
+    setValues(_objectSpread({}, values, {
+      [label]: value
+    }));
+    updateUser({
+      [label]: value
+    });
+  };
+
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_components_header__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 49
     },
     __self: undefined
   }), __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 50
     },
     __self: undefined
-  }, "Names: ", id), __jsx("ul", {
+  }, "Hello World!"), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 51
     },
     __self: undefined
-  }, __jsx("li", {
+  }, "Name (GlobalState): ", name_first, ", ", name_last), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 54
     },
     __self: undefined
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    href: "/post/[id]/[name]",
-    as: `/post/${id}/first-name`,
+  }, "Name (LocalState): ", values.name_first, ", ", values.name_last), __jsx("hr", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 57
     },
     __self: undefined
-  }, __jsx("a", {
+  }), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 58
     },
     __self: undefined
-  }, "First Name"))), __jsx("li", {
+  }, __jsx("label", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 59
     },
     __self: undefined
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    href: "/post/[id]/[name]",
-    as: `/post/${id}/last-name`,
+  }, "First Name"), " ", __jsx("input", {
+    onChange: handleInputChange("name_first"),
+    value: values.name_first,
+    type: "text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 60
     },
     __self: undefined
-  }, __jsx("a", {
+  })), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 66
     },
     __self: undefined
-  }, "Last Name")))));
+  }, __jsx("label", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: undefined
+  }, "Last Name"), " ", __jsx("input", {
+    onChange: handleInputChange("name_last"),
+    value: values.name_last,
+    type: "text",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 68
+    },
+    __self: undefined
+  })));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Post);
+/* harmony default export */ __webpack_exports__["default"] = (Home);
 
 /***/ }),
 
-/***/ 5:
-/*!****************************************!*\
-  !*** multi ./pages/post/[id]/index.js ***!
-  \****************************************/
+/***/ "./utils/context/actions/global/index.js":
+/*!***********************************************!*\
+  !*** ./utils/context/actions/global/index.js ***!
+  \***********************************************/
+/*! exports provided: user */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _user__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./user */ "./utils/context/actions/global/user.js");
+/* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "user", function() { return _user__WEBPACK_IMPORTED_MODULE_0__; });
+
+
+
+/***/ }),
+
+/***/ "./utils/context/actions/global/user.js":
+/*!**********************************************!*\
+  !*** ./utils/context/actions/global/user.js ***!
+  \**********************************************/
+/*! exports provided: setUser, updateUser */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setUser", function() { return setUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateUser", function() { return updateUser; });
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+const setUser = (store, user) => {
+  store.setState({
+    user
+  });
+};
+const updateUser = (store, dic) => {
+  const {
+    user
+  } = store.state;
+
+  const newDic = _objectSpread({}, user, {}, dic);
+
+  store.setState({
+    user: newDic
+  });
+};
+
+/***/ }),
+
+/***/ "./utils/context/index.js":
+/*!********************************!*\
+  !*** ./utils/context/index.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// Reference: https://github.com/andregardi/use-global-hook
+function setState(store, newState, afterUpdateCallback) {
+  console.log(store, newState, afterUpdateCallback);
+  store.state = _objectSpread({}, store.state, {}, newState);
+  store.listeners.forEach(listener => {
+    listener.run(store.state);
+  });
+  afterUpdateCallback && afterUpdateCallback();
+}
+
+function useCustom(store, React, mapState, mapActions) {
+  const [, originalHook] = React.useState(Object.create(null));
+  const state = mapState ? mapState(store.state) : store.state;
+  const actions = React.useMemo(() => mapActions ? mapActions(store.actions) : store.actions, [mapActions, store.actions]);
+  React.useEffect(() => {
+    const newListener = {
+      oldState: {}
+    };
+    newListener.run = mapState ? newState => {
+      const mappedState = mapState(newState);
+
+      if (mappedState !== newListener.oldState) {
+        newListener.oldState = mappedState;
+        originalHook(mappedState);
+      }
+    } : originalHook;
+    store.listeners.push(newListener);
+    newListener.run(store.state);
+    return () => {
+      store.listeners = store.listeners.filter(listener => listener !== newListener);
+    };
+  }, []); // eslint-disable-line
+
+  return [state, actions];
+}
+
+function associateActions(store, actions) {
+  const associatedActions = {};
+  Object.keys(actions).forEach(key => {
+    if (typeof actions[key] === "function") {
+      associatedActions[key] = actions[key].bind(null, store);
+    }
+
+    if (typeof actions[key] === "object") {
+      associatedActions[key] = associateActions(store, actions[key]);
+    }
+  });
+  return associatedActions;
+}
+
+const useStore = (React, initialState, actions, initializer) => {
+  const store = {
+    state: initialState,
+    listeners: []
+  };
+  store.setState = setState.bind(null, store);
+  store.actions = associateActions(store, actions);
+  if (initializer) initializer(store);
+  return useCustom.bind(null, store, React);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (useStore);
+
+/***/ }),
+
+/***/ "./utils/context/store/global/index.js":
+/*!*********************************************!*\
+  !*** ./utils/context/store/global/index.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../index */ "./utils/context/index.js");
+/* harmony import */ var _actions_global__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/global */ "./utils/context/actions/global/index.js");
+
+
+
+const initialState = {
+  user: {
+    isExisting: true,
+    loggedIn: false,
+    name_first: 'John',
+    name_last: 'Doe'
+  }
+};
+const useGlobal = Object(_index__WEBPACK_IMPORTED_MODULE_1__["default"])(react__WEBPACK_IMPORTED_MODULE_0___default.a, initialState, _actions_global__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony default export */ __webpack_exports__["default"] = (useGlobal);
+
+/***/ }),
+
+/***/ 4:
+/*!******************************!*\
+  !*** multi ./pages/index.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/bigeyestoad/Documents/gitRepos/challenges/upworkNextJS/pages/post/[id]/index.js */"./pages/post/[id]/index.js");
+module.exports = __webpack_require__(/*! /home/bigeyestoad/Documents/gitRepos/challenges/upworkNextJS/pages/index.js */"./pages/index.js");
 
 
 /***/ }),
@@ -2069,17 +2298,6 @@ module.exports = require("core-js/library/fn/weak-map");
 
 /***/ }),
 
-/***/ "next/router":
-/*!******************************!*\
-  !*** external "next/router" ***!
-  \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("next/router");
-
-/***/ }),
-
 /***/ "prop-types":
 /*!*****************************!*\
   !*** external "prop-types" ***!
@@ -2136,4 +2354,4 @@ module.exports = require("url");
 /***/ })
 
 /******/ });
-//# sourceMappingURL=[id].js.map
+//# sourceMappingURL=index.js.map
