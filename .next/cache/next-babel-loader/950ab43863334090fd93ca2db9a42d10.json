@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nimport Header from '../components/header';\n\nvar About = function About() {\n  return __jsx(React.Fragment, null, __jsx(Header, null), __jsx(\"h1\", null, \"About page\"));\n};\n\nexport default About;","map":null,"metadata":{},"sourceType":"module"}
