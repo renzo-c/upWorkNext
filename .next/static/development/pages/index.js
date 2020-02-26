@@ -10338,7 +10338,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 var Home = function Home() {
-  // TODO: Create local state for first name which will change only on this page. 
+  // TODO-1: Create local state for first name which will change only on this page. 
   // It should also be able to update with global state.
   var _useGlobal = Object(_utils_context_store_global__WEBPACK_IMPORTED_MODULE_11__["default"])(),
       _useGlobal2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_8__["default"])(_useGlobal, 2),
@@ -10348,7 +10348,7 @@ var Home = function Home() {
   var _globalState$user = globalState.user,
       name_first = _globalState$user.name_first,
       name_last = _globalState$user.name_last;
-  var updateUser = globalActions.user.updateUser;
+  var updateUser = globalActions.user.updateUser; // TODO-1
 
   var _useState = Object(react__WEBPACK_IMPORTED_MODULE_9__["useState"])({
     name_first: name_first,
@@ -10356,7 +10356,7 @@ var Home = function Home() {
   }),
       values = _useState[0],
       setValues = _useState[1];
-  /** TODO: Change first or last name which should show across website.
+  /** TODO-2: Change first or last name which should show across website.
    * i.e. Create text field that will change global state ALSO with local state on this page.
    *
    * This is a small example on how globalActions should be used.*/
@@ -10364,7 +10364,7 @@ var Home = function Home() {
   //   const value = event.target.value
   //   globalActions.user.updateUser({[event.target.name]:value});
   // }
-  // TODO: Create useEffect to change the last name ONCE upon showing this page.
+  // TODO-3: Create useEffect to change the last name ONCE upon showing this page.
 
 
   Object(react__WEBPACK_IMPORTED_MODULE_9__["useEffect"])(function () {
@@ -10374,7 +10374,8 @@ var Home = function Home() {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              label = "name_last";
+              label = "name_last"; // TODO-3
+
               _context.next = 3;
               return _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_6___default.a.awrap(updateUser(Object(_babel_runtime_corejs2_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])({}, label, "name_last changed")));
 
@@ -10390,7 +10391,7 @@ var Home = function Home() {
     };
 
     asyncFunction();
-  }, []);
+  }, []); // TODO-2
 
   var handleInputChange = function handleInputChange(label) {
     return function (event) {
@@ -10403,43 +10404,43 @@ var Home = function Home() {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_9___default.a.Fragment, null, __jsx(_components_header__WEBPACK_IMPORTED_MODULE_10__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 52
     },
     __self: this
   }), __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 53
     },
     __self: this
   }, "Hello World!"), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 54
     },
     __self: this
   }, "Name (GlobalState): ", name_first, ", ", name_last), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 57
     },
     __self: this
   }, "Name (LocalState): ", values.name_first, ", ", values.name_last), __jsx("hr", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 60
     },
     __self: this
   }), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58
+      lineNumber: 61
     },
     __self: this
   }, __jsx("label", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59
+      lineNumber: 62
     },
     __self: this
   }, "First Name"), " ", __jsx("input", {
@@ -10448,19 +10449,19 @@ var Home = function Home() {
     type: "text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60
+      lineNumber: 63
     },
     __self: this
   })), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
+      lineNumber: 69
     },
     __self: this
   }, __jsx("label", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67
+      lineNumber: 70
     },
     __self: this
   }, "Last Name"), " ", __jsx("input", {
@@ -10469,7 +10470,7 @@ var Home = function Home() {
     type: "text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68
+      lineNumber: 71
     },
     __self: this
   })));

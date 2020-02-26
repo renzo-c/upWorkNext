@@ -1936,7 +1936,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 const Home = () => {
-  // TODO: Create local state for first name which will change only on this page. 
+  // TODO-1: Create local state for first name which will change only on this page. 
   // It should also be able to update with global state.
   const [globalState, globalActions] = Object(_utils_context_store_global__WEBPACK_IMPORTED_MODULE_2__["default"])();
   const {
@@ -1949,7 +1949,8 @@ const Home = () => {
     user: {
       updateUser
     }
-  } = globalActions;
+  } = globalActions; // TODO-1
+
   const {
     0: values,
     1: setValues
@@ -1957,7 +1958,7 @@ const Home = () => {
     name_first,
     name_last
   });
-  /** TODO: Change first or last name which should show across website.
+  /** TODO-2: Change first or last name which should show across website.
    * i.e. Create text field that will change global state ALSO with local state on this page.
    *
    * This is a small example on how globalActions should be used.*/
@@ -1965,11 +1966,12 @@ const Home = () => {
   //   const value = event.target.value
   //   globalActions.user.updateUser({[event.target.name]:value});
   // }
-  // TODO: Create useEffect to change the last name ONCE upon showing this page.
+  // TODO-3: Create useEffect to change the last name ONCE upon showing this page.
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     const asyncFunction = async () => {
-      const label = "name_last";
+      const label = "name_last"; // TODO-3
+
       await updateUser({
         [label]: "name_last changed"
       });
@@ -1979,7 +1981,7 @@ const Home = () => {
     };
 
     asyncFunction();
-  }, []);
+  }, []); // TODO-2
 
   const handleInputChange = label => event => {
     const value = event.target.value;
@@ -1994,43 +1996,43 @@ const Home = () => {
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_components_header__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 49
+      lineNumber: 52
     },
     __self: undefined
   }), __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 53
     },
     __self: undefined
   }, "Hello World!"), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 54
     },
     __self: undefined
   }, "Name (GlobalState): ", name_first, ", ", name_last), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 54
+      lineNumber: 57
     },
     __self: undefined
   }, "Name (LocalState): ", values.name_first, ", ", values.name_last), __jsx("hr", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 60
     },
     __self: undefined
   }), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 58
+      lineNumber: 61
     },
     __self: undefined
   }, __jsx("label", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 59
+      lineNumber: 62
     },
     __self: undefined
   }, "First Name"), " ", __jsx("input", {
@@ -2039,19 +2041,19 @@ const Home = () => {
     type: "text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 60
+      lineNumber: 63
     },
     __self: undefined
   })), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
+      lineNumber: 69
     },
     __self: undefined
   }, __jsx("label", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 67
+      lineNumber: 70
     },
     __self: undefined
   }, "Last Name"), " ", __jsx("input", {
@@ -2060,7 +2062,7 @@ const Home = () => {
     type: "text",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 68
+      lineNumber: 71
     },
     __self: undefined
   })));
