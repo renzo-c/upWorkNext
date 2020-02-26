@@ -3,6 +3,7 @@ import Header from '../../../components/header'
 
 const Name = () => {
   const router = useRouter()
+  console.log(router);
   const { id, name } = router.query
 
   return (

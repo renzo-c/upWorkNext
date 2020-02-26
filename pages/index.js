@@ -3,7 +3,8 @@ import Header from "../components/header";
 import useGlobal from "../utils/context/store/global";
 
 const Home = () => {
-  // TODO: Create local state for first name which will change only on this page. It should also be able to update with global state.
+  // TODO: Create local state for first name which will change only on this page. 
+  // It should also be able to update with global state.
 
   const [globalState, globalActions] = useGlobal();
   const {
@@ -29,12 +30,20 @@ const Home = () => {
 
   // TODO: Create useEffect to change the last name ONCE upon showing this page.
 
+  useEffect(() => {
+    const asyncFunction = async() => {
+      const label = "name_last"
+      await globalActions.user.updateUser({ [label]: "name_last changed" });
+      setValues({ ...values, [label]: name_last });
+    }
+    asyncFunction();
+  }, []);
+
   const handleInputChange = label => event => {
     const value = event.target.value;
     setValues({ ...values, [label]: value });
     globalActions.user.updateUser({ [label]: value });
   };
-
   return (
     <>
       <Header />

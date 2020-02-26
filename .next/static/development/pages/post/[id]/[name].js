@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/post/[id].js"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/post/[id]/[name].js"],{
 
 /***/ "./components/header.js":
 /*!******************************!*\
@@ -4634,21 +4634,21 @@ var assign=Object.assign.bind(Object);function g(){return assign;}Object.defineP
 
 /***/ }),
 
-/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fpost%2F%5Bid%5D&absolutePagePath=%2Fhome%2Fbigeyestoad%2FDocuments%2FgitRepos%2Fchallenges%2FupworkNextJS%2Fpages%2Fpost%2F%5Bid%5D%2Findex.js!./":
-/*!*****************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fpost%2F%5Bid%5D&absolutePagePath=%2Fhome%2Fbigeyestoad%2FDocuments%2FgitRepos%2Fchallenges%2FupworkNextJS%2Fpages%2Fpost%2F%5Bid%5D%2Findex.js ***!
-  \*****************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fpost%2F%5Bid%5D%2F%5Bname%5D&absolutePagePath=%2Fhome%2Fbigeyestoad%2FDocuments%2FgitRepos%2Fchallenges%2FupworkNextJS%2Fpages%2Fpost%2F%5Bid%5D%2F%5Bname%5D.js!./":
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fpost%2F%5Bid%5D%2F%5Bname%5D&absolutePagePath=%2Fhome%2Fbigeyestoad%2FDocuments%2FgitRepos%2Fchallenges%2FupworkNextJS%2Fpages%2Fpost%2F%5Bid%5D%2F%5Bname%5D.js ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-    (window.__NEXT_P=window.__NEXT_P||[]).push(["/post/[id]", function() {
-      var mod = __webpack_require__(/*! ./pages/post/[id]/index.js */ "./pages/post/[id]/index.js")
+    (window.__NEXT_P=window.__NEXT_P||[]).push(["/post/[id]/[name]", function() {
+      var mod = __webpack_require__(/*! ./pages/post/[id]/[name].js */ "./pages/post/[id]/[name].js")
       if(true) {
-        module.hot.accept(/*! ./pages/post/[id]/index.js */ "./pages/post/[id]/index.js", function() {
-          if(!next.router.components["/post/[id]"]) return
-          var updatedPage = __webpack_require__(/*! ./pages/post/[id]/index.js */ "./pages/post/[id]/index.js")
-          next.router.update("/post/[id]", updatedPage)
+        module.hot.accept(/*! ./pages/post/[id]/[name].js */ "./pages/post/[id]/[name].js", function() {
+          if(!next.router.components["/post/[id]/[name]"]) return
+          var updatedPage = __webpack_require__(/*! ./pages/post/[id]/[name].js */ "./pages/post/[id]/[name].js")
+          next.router.update("/post/[id]/[name]", updatedPage)
         })
       }
       return mod
@@ -9990,10 +9990,10 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./pages/post/[id]/index.js":
-/*!**********************************!*\
-  !*** ./pages/post/[id]/index.js ***!
-  \**********************************/
+/***/ "./pages/post/[id]/[name].js":
+/*!***********************************!*\
+  !*** ./pages/post/[id]/[name].js ***!
+  \***********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -10003,20 +10003,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
 /* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/link */ "./node_modules/next/link.js");
-/* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/header */ "./components/header.js");
-var _jsxFileName = "/home/bigeyestoad/Documents/gitRepos/challenges/upworkNextJS/pages/post/[id]/index.js";
+/* harmony import */ var _components_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/header */ "./components/header.js");
+var _jsxFileName = "/home/bigeyestoad/Documents/gitRepos/challenges/upworkNextJS/pages/post/[id]/[name].js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-
-var Post = function Post() {
+var Name = function Name() {
   var router = Object(next_router__WEBPACK_IMPORTED_MODULE_1__["useRouter"])();
-  var id = router.query.id;
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_components_header__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  console.log(router);
+  var _router$query = router.query,
+      id = _router$query.id,
+      name = _router$query.name;
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_components_header__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 11
@@ -10028,67 +10028,27 @@ var Post = function Post() {
       lineNumber: 12
     },
     __self: this
-  }, "Names: ", id), __jsx("ul", {
+  }, "Name: ", id), __jsx("h1", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 13
     },
     __self: this
-  }, __jsx("li", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 14
-    },
-    __self: this
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    href: "/post/[id]/[name]",
-    as: "/post/".concat(id, "/first-name"),
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 15
-    },
-    __self: this
-  }, __jsx("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16
-    },
-    __self: this
-  }, "First Name"))), __jsx("li", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 19
-    },
-    __self: this
-  }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    href: "/post/[id]/[name]",
-    as: "/post/".concat(id, "/last-name"),
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 20
-    },
-    __self: this
-  }, __jsx("a", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21
-    },
-    __self: this
-  }, "Last Name")))));
+  }, "Name: ", name));
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Post);
+/* harmony default export */ __webpack_exports__["default"] = (Name);
 
 /***/ }),
 
-/***/ 3:
-/*!*********************************************************************************************************************************************************************************************!*\
-  !*** multi next-client-pages-loader?page=%2Fpost%2F%5Bid%5D&absolutePagePath=%2Fhome%2Fbigeyestoad%2FDocuments%2FgitRepos%2Fchallenges%2FupworkNextJS%2Fpages%2Fpost%2F%5Bid%5D%2Findex.js ***!
-  \*********************************************************************************************************************************************************************************************/
+/***/ 4:
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** multi next-client-pages-loader?page=%2Fpost%2F%5Bid%5D%2F%5Bname%5D&absolutePagePath=%2Fhome%2Fbigeyestoad%2FDocuments%2FgitRepos%2Fchallenges%2FupworkNextJS%2Fpages%2Fpost%2F%5Bid%5D%2F%5Bname%5D.js ***!
+  \***************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fpost%2F%5Bid%5D&absolutePagePath=%2Fhome%2Fbigeyestoad%2FDocuments%2FgitRepos%2Fchallenges%2FupworkNextJS%2Fpages%2Fpost%2F%5Bid%5D%2Findex.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fpost%2F%5Bid%5D&absolutePagePath=%2Fhome%2Fbigeyestoad%2FDocuments%2FgitRepos%2Fchallenges%2FupworkNextJS%2Fpages%2Fpost%2F%5Bid%5D%2Findex.js!./");
+module.exports = __webpack_require__(/*! next-client-pages-loader?page=%2Fpost%2F%5Bid%5D%2F%5Bname%5D&absolutePagePath=%2Fhome%2Fbigeyestoad%2FDocuments%2FgitRepos%2Fchallenges%2FupworkNextJS%2Fpages%2Fpost%2F%5Bid%5D%2F%5Bname%5D.js! */"./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?page=%2Fpost%2F%5Bid%5D%2F%5Bname%5D&absolutePagePath=%2Fhome%2Fbigeyestoad%2FDocuments%2FgitRepos%2Fchallenges%2FupworkNextJS%2Fpages%2Fpost%2F%5Bid%5D%2F%5Bname%5D.js!./");
 
 
 /***/ }),
@@ -10104,5 +10064,5 @@ module.exports = dll_fc878a605ca7bff75bfb;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js"]]]);
-//# sourceMappingURL=[id].js.map
+},[[4,"static/runtime/webpack.js"]]]);
+//# sourceMappingURL=[name].js.map
